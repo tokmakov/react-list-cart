@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#root {
+    /* flex-контейнер для <header>, <main> и <footer> */
+    display: flex;
+    /* flex-элементы <header>, <main> и <footer> выстаиваются по вертикали */
+    flex-direction: column;
+    /* вся высота viewport браузера */
+    min-height: 100vh;
+}
+main {
+    padding-top: 20px;
+    /*
+     * может как увеличиваться, так и уменьшаться, чтобы вместе с
+     * <header> и <footer> занять всю высоту viewport браузера
+     */
+    flex: 1 1 auto;
+}
+.page-footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+nav {
+    box-shadow: none;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .card-content {
+    flex-grow: 1;
+}
+
+.card .card-title {
+    font-size: 18px;
+}
+
+.btn, .btn-large, .btn-small, .btn-flat {
+    padding: 0 10px;
+}
+
+.cart-icon {
+    position: fixed;
+    z-index: 100;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    background-color: #EF5350;
+}
+
+.cart-modal {
+    position: fixed;
+    z-index: 50;
+    min-width: 50%;
+    max-width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 10px;
+    border: 3px solid #EF5350;
+}
+
+.cart-modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #EF5350;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart-item-delete {
+    cursor: pointer;
+    color: #26a69a;
+}
+
+.show-info {
+    position: fixed;
+    z-index: 100;
+    right: 60px;
+    top: 10px;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+}

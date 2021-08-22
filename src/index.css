@@ -95,7 +95,7 @@ nav {
     color: #26a69a;
 }
 
-.show-info {
+.show-alert {
     position: fixed;
     z-index: 100;
     right: 60px;

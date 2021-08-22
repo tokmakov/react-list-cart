@@ -1,14 +1,14 @@
 import {useState} from 'react';
 import CartIcon from './CartIcon';
-import ShowInfo from './ShowInfo';
+import ShowAlert from './ShowAlert';
 import CartList from './CartList';
 import ShopList from './ShopList';
 
 export default function Content() {
     const [cartItems, setCartItems] = useState([]);
-    const [cartVisible, setCartVisible] = useState(false); // модальное окно
+    const [cartShow, setCartShow] = useState(false); // модальное окно
     // для показа сообщения после добавления в корзину
-    const [showInfo, setShowInfo] = useState(null);
+    const [showAlert, setShowAlert] = useState(null);
 
     const appendToCart = (item, quantity = 1) => {
         // нужно проверить, нет ли уже такого товара в корзине
@@ -28,7 +28,7 @@ export default function Content() {
             newCart.splice(itemIndex, 1, newItem);
             setCartItems(newCart);
         }
-        setShowInfo(item.name + ' добавлен в корзину');
+        setShowAlert(item.name + ' добавлен в корзину');
     };
 
     const removeFromCart = (id) => {
@@ -36,17 +36,17 @@ export default function Content() {
         setCartItems(newCart);
     }
 
-    const toggleCart = () => setCartVisible(!cartVisible);
+    const toggleShow = () => setCartShow(!cartShow);
 
-    const hideInfo = () => setShowInfo(null);
+    const hideAlert = () => setShowAlert(null);
 
     return (
         <main className="container">
-            <CartIcon length={cartItems.length} toggleCart={toggleCart} />
-            {showInfo && <ShowInfo text={showInfo} hideInfo={hideInfo} />}
+            <CartIcon length={cartItems.length} toggleShow={toggleShow} />
+            {showAlert && <ShowAlert text={showAlert} hideAlert={hideAlert} />}
             <ShopList appendToCart={appendToCart} />
-            {cartVisible ? (
-                <CartList items={cartItems} toggleCart={toggleCart} removeFromCart={removeFromCart} />
+            {cartShow ? (
+                <CartList items={cartItems} toggleShow={toggleShow} removeFromCart={removeFromCart} />
             ) : (
                 null
             )}

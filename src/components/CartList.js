@@ -5,7 +5,7 @@ export default function CartList(props) {
     const cost = props.items.reduce((sum, item) => sum + item.price * item.quantity, 0) 
     return (
         <div className="cart-modal">
-            <i className="material-icons cart-modal-close" onClick={props.toggleCart}>
+            <i className="material-icons cart-modal-close" onClick={props.toggleShow}>
                 close
             </i>
             <h5 className="red-text text-lighten-1">Ваша корзина</h5>

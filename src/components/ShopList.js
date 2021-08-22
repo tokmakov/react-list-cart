@@ -26,7 +26,7 @@ export default function ShopList(props) {
                 <Preloader />
             ) : items.length ? (
                 items.map(item => (
-                    <ShopCard key={item.id} {...item} addToCart={props.addToCart} />
+                    <ShopCard key={item.id} {...item} appendToCart={props.appendToCart} />
                 ))
             ) : (
                 <p>Не удалось загрузить список товаров</p>

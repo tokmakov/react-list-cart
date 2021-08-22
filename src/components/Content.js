@@ -10,7 +10,7 @@ export default function Content() {
     // для показа сообщения после добавления в корзину
     const [showInfo, setShowInfo] = useState(null);
 
-    const AddToCart = (item, quantity = 1) => {
+    const appendToCart = (item, quantity = 1) => {
         // нужно проверить, нет ли уже такого товара в корзине
         const itemIndex = cartItems.findIndex(value => value.id === item.id);
         if (itemIndex < 0) { // такого товара еще нет
@@ -44,7 +44,7 @@ export default function Content() {
         <main className="container">
             <CartIcon length={cartItems.length} toggleCart={toggleCart} />
             {showInfo && <ShowInfo text={showInfo} hideInfo={hideInfo} />}
-            <ShopList addToCart={AddToCart} />
+            <ShopList appendToCart={appendToCart} />
             {cartVisible ? (
                 <CartList items={cartItems} toggleCart={toggleCart} removeFromCart={removeFromCart} />
             ) : (

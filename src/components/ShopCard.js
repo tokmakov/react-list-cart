@@ -4,7 +4,7 @@ export default function ShopCard(props) {
         name,
         price,
         images,
-        addToCart
+        appendToCart
     } = props;
     const item = {id: id, name: name, price: price}
     return (
@@ -19,7 +19,7 @@ export default function ShopCard(props) {
                 <p>Цена: {price} руб.</p>
             </div>
             <div className="card-action">
-                <button className="btn-small" onClick={() => addToCart(item, 1)} >
+                <button className="btn-small" onClick={() => appendToCart(item, 1)} >
                     Купить
                 </button>
                 <button className="btn-small right">Больше</button>
